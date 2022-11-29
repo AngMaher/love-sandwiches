@@ -55,14 +55,14 @@ def validate_data(values):
     return True
 
 
-#def update_sales_worksheet(data):
+# def update_sales_worksheet(data):
     """
     Update sales worksheet, add new row with the list data provided.
     """
 #    print("Updating sales worksheet...\n")
- #   sales_worksheet = SHEET.worksheet("sales")
-  #  sales_worksheet.append_row(data)
-   # print("Sales worksheet updated successfully.\n")
+#    sales_worksheet = SHEET.worksheet("sales")
+#    sales_worksheet.append_row(data)
+#    print("Sales worksheet updated successfully.\n")
 
 
 def calculate_surplus_data(sales_row):
@@ -82,7 +82,7 @@ def calculate_surplus_data(sales_row):
         surplus_data.append(surplus)
     return surplus_data
 
-#def update_surplus_worksheet(data):
+# def update_surplus_worksheet(data):
     """
     Update surplus worksheet, add new row with the list data provided.
     """
@@ -102,6 +102,7 @@ def update_worksheet(data, worksheet):
     worksheet_to_update.append_row(data)
     print(f"{worksheet} worksheet updated sucessfully\n") 
 
+
 def get_last_5_entry_sales():
     """
     Collects columns of data from sales worksheet, collecting
@@ -111,7 +112,7 @@ def get_last_5_entry_sales():
     sales = SHEET.worksheet("sales")
 
     columns = []
-    for ind in range(1,7):
+    for ind in range(1, 7):
         column = sales.col_values(ind)
         columns.append(column[-5:])
     
@@ -146,6 +147,7 @@ def main():
     sales_column = get_last_5_entry_sales()
     stock_data = calculate_stock_data(sales_column)
     update_worksheet(stock_data, "stock")
+
 
 print("Welcome to Love Sandwiches Data Automation")
 main()
